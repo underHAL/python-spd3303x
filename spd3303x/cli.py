@@ -59,3 +59,6 @@ def set(ctx, channel, voltage, current, on):
             except AttributeError:
                 raise click.UsageError(f"{channel_name} does not support setting current")
         channel.set_output(on)
+
+if __name__ == '__main__':
+    cli()
