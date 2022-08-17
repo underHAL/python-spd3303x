@@ -59,7 +59,7 @@ class SPD3303X(object):
             raise
         mnf,model,_,_,_ = dsc.split(",")
         logger.debug(f"Discovered {model} by {mnf}")
-        if model!="SPD3303X":
+        if model!="SPD3303X" and model!="SPD3303X-E":
             raise Exception(f"Device {model} not supported")
         self.CH1 = SPD3303X.ControlledChannel(1, self)
         self.CH2 = SPD3303X.ControlledChannel(2, self)
@@ -119,4 +119,3 @@ class EthernetDevice(SPD3303X):
 
     def query(self, cmd: str):
         return self._inst.ask(cmd)
-
